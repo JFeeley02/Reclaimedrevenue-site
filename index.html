@@ -143,6 +143,10 @@
   .slips li b { display: block; color: var(--navy); font-size: 18px; margin-bottom: 4px; }
   .slips li p { margin: 0; color: var(--ink); }
 
+  .chips { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 10px; }
+  .chips li { padding: 8px 16px; border: 1px solid var(--rule); border-radius: 999px; background: var(--paper); color: var(--navy); font-weight: 600; font-size: 15px; line-height: 1.3; }
+  .chips li.more { border-style: dashed; background: transparent; color: var(--muted); font-weight: 500; }
+
   .steps { counter-reset: step; list-style: none; margin: 0; padding: 0; display: grid; gap: 28px; max-width: 760px; }
   .steps li { counter-increment: step; display: grid; grid-template-columns: 48px 1fr; gap: 18px; align-items: start; }
   .steps li::before {
@@ -296,7 +300,31 @@
     </div>
   </section>
 
-  <section aria-labelledby="how">
+  <section aria-labelledby="who">
+    <div class="wrap">
+      <h2 id="who">Who we work with</h2>
+      <p class="intro">Any business that turns leads into <span style="white-space:nowrap">in-person</span> appointments. A few we&#39;re built for:</p>
+      <ul class="chips">
+        <li>Roofing</li>
+        <li>Remodeling</li>
+        <li>Fencing</li>
+        <li>Foundation repair</li>
+        <li>HVAC</li>
+        <li>Plumbing</li>
+        <li>Electrical</li>
+        <li>Landscaping</li>
+        <li>Pest control</li>
+        <li>Pool service</li>
+        <li>Cleaning</li>
+        <li>Garage doors</li>
+        <li>Auto repair</li>
+        <li>Property management</li>
+        <li class="more">and more</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="tint" aria-labelledby="how">
     <div class="wrap">
       <h2 id="how">How it works</h2>
       <p class="intro">No new software. Your team keeps doing what it does best.</p>
@@ -309,7 +337,7 @@
     </div>
   </section>
 
-  <section class="tint" aria-labelledby="not">
+  <section aria-labelledby="not">
     <div class="wrap split">
       <div>
         <h2 id="not">What we don't do</h2>
@@ -325,7 +353,7 @@
     </div>
   </section>
 
-  <section class="faq" aria-labelledby="faq">
+  <section class="faq tint" aria-labelledby="faq">
     <div class="wrap">
       <h2 id="faq">Questions business owners frequently ask</h2>
       <details>
