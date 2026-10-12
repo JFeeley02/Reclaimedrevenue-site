@@ -6,15 +6,22 @@
 <title>Reclaimed Revenue Solutions | Lead follow-up for local businesses</title>
 <meta name="description" content="We follow up by phone on the people who reached out to your business and never got booked, qualify them by your rules, and put them on your calendar. Serving the Houston area.">
 <meta property="og:title" content="Reclaimed Revenue Solutions">
-<meta property="og:description" content="Your unworked leads, turned into booked appointments. Live phone follow-up for local businesses in the Houston area.">
+<meta property="og:description" content="We catch the leads that get away and send them back booked. Live phone follow-up for local businesses in the Houston area.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://reclaimedrevenue.org/">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231F3A5F'/%3E%3Cpath d='M20 46V18h13a9 9 0 0 1 2 17.8L44 46h-8l-8-10h-1v10z M27 30h6a3 3 0 0 0 0-6h-6z' fill='%23fff'/%3E%3C/svg%3E">
+<meta property="og:site_name" content="Reclaimed Revenue Solutions">
+<meta property="og:image" content="https://reclaimedrevenue.org/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Reclaimed Revenue Solutions: We catch the leads that get away and send them back booked.">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"ProfessionalService","name":"Reclaimed Revenue Solutions","url":"https://reclaimedrevenue.org/","telephone":"+1-832-479-2613","email":"Jared@reclaimedrevenue.org","areaServed":"Houston, TX","description":"Live phone follow-up and appointment setting on the leads local businesses already have."}
+{"@context":"https://schema.org","@type":"ProfessionalService","name":"Reclaimed Revenue Solutions","url":"https://reclaimedrevenue.org/","telephone":"+1-832-479-2613","email":"Jared@reclaimedrevenue.org","areaServed":"Houston, TX","openingHours":"Mo-Sa 06:00-19:00","description":"Live phone follow-up and appointment setting on the leads local businesses already have."}
 </script>
 <style>
   :root {
@@ -55,20 +62,25 @@
   .mark { text-decoration: none; display: inline-block; line-height: 1; }
   .mark b { display: block; color: var(--navy); font-size: 22px; font-weight: 800; letter-spacing: -0.02em; }
   .mark span { display: block; color: var(--green); font-size: 10px; font-weight: 700; letter-spacing: 0.42em; margin-top: 5px; }
-  .top-phone { color: var(--navy); font-weight: 600; text-decoration: none; white-space: nowrap; }
-  .top-phone:hover { text-decoration: underline; }
+
+  .top .wrap { flex-wrap: wrap; }
+  .contact { display: flex; flex-direction: column; align-items: flex-end; gap: 4px; }
+  .contact a { display: inline-flex; align-items: center; gap: 8px; color: var(--navy); font-weight: 600; font-size: 15.5px; text-decoration: none; white-space: nowrap; }
+  .contact a:hover { text-decoration: underline; }
+  .contact svg { color: var(--green); flex: none; }
 
   /* Hero */
   .hero { padding: 72px 0 80px; }
   .hero .wrap { display: grid; grid-template-columns: 1.05fr 1fr; gap: 56px; align-items: center; }
   h1 {
-    font-size: clamp(38px, 5.4vw, 60px);
+    font-size: clamp(34px, 4.4vw, 52px);
     line-height: 1.04;
     letter-spacing: -0.035em;
     font-weight: 800;
     color: var(--navy);
     margin: 0 0 22px;
-    max-width: 12ch;
+    max-width: 16ch;
+    text-wrap: balance;
   }
   .lede { font-size: 19px; color: var(--ink); margin: 0 0 30px; max-width: 34em; }
   .actions { display: flex; flex-wrap: wrap; gap: 12px; }
@@ -91,7 +103,7 @@
     overflow: hidden;
   }
   .ledger-head {
-    display: flex; justify-content: space-between; align-items: baseline; gap: 12px;
+    display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 2px 12px;
     padding: 16px 20px; background: var(--soft); border-bottom: 1px solid var(--rule);
   }
   .ledger-head strong { color: var(--navy); font-size: 15px; }
@@ -170,25 +182,30 @@
   .close .btn-secondary { color: #fff; border-color: rgba(255,255,255,0.7); }
   .close .btn-secondary:hover { background: rgba(255,255,255,0.08); }
   .close a:focus-visible { outline-color: #fff; }
+  .close .hours { margin: 22px 0 0; font-size: 15px; color: #D6DEE8; }
 
   footer { padding: 28px 0 36px; font-size: 14px; color: var(--muted); }
   footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px 24px; }
   footer p { margin: 0; }
+  footer .nw { white-space: nowrap; }
 
   @media (max-width: 860px) {
     .hero { padding: 44px 0 56px; }
     .hero .wrap { grid-template-columns: 1fr; gap: 40px; }
-    h1 { max-width: 14ch; }
+    h1 { max-width: 17ch; }
     section { padding: 60px 0; }
     .slips { grid-template-columns: 1fr; }
     .split { grid-template-columns: 1fr; gap: 36px; }
   }
   @media (max-width: 520px) {
+    .contact { width: 100%; flex-direction: row; flex-wrap: wrap; align-items: center; gap: 6px 18px; }
+    .contact a { font-size: 14px; }
+    footer .sep { display: none; }
+    footer .nw { display: block; white-space: normal; }
     body { font-size: 16px; }
     .wrap { padding: 0 16px; }
     .mark b { font-size: 19px; }
-    .top-phone { font-size: 15px; }
-    .lede { font-size: 17px; }
+        .lede { font-size: 17px; }
     .btn { width: 100%; text-align: center; }
     .ledger li { padding: 12px 16px; }
     .ledger-head, .ledger-foot { padding-left: 16px; padding-right: 16px; }
@@ -207,7 +224,10 @@
       <b>Reclaimed Revenue</b>
       <span>SOLUTIONS</span>
     </a>
-    <a class="top-phone" href="tel:+18324792613">(832) 479-2613</a>
+    <div class="contact">
+      <a href="tel:+18324792613"><svg aria-hidden="true" width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z"/></svg>(832) 479-2613</a>
+      <a href="mailto:Jared@reclaimedrevenue.org"><svg aria-hidden="true" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3.5 6.5 8.5 6.5 8.5-6.5"/></svg>Jared@reclaimedrevenue.org</a>
+    </div>
   </div>
 </header>
 
@@ -215,7 +235,7 @@
   <div class="hero">
     <div class="wrap">
       <div>
-        <h1>Your unworked leads, turned into booked appointments.</h1>
+        <h1>We catch the leads that get away and send them back booked.</h1>
         <p class="lede">We follow up by phone on the people who reached out to your business and never got booked, qualify them by your rules, and put the ones who fit on your calendar. We don't sell leads. We work the ones you already have.</p>
         <div class="actions">
           <a class="btn btn-primary" href="mailto:Jared@reclaimedrevenue.org?subject=Free%2010-minute%20list%20look">Get a free 10-minute list look</a>
@@ -224,10 +244,10 @@
         <p class="fine">Serving businesses across the Houston area. Month-to-month, no long contract.</p>
       </div>
 
-      <div class="ledger" aria-label="Example lead list">
+      <div class="ledger" aria-label="Sample follow-up report, not real clients">
         <div class="ledger-head">
-          <strong>Leads that never got booked</strong>
-          <small>Example</small>
+          <strong>Your follow-up report</strong>
+          <small>Sample, not real clients</small>
         </div>
         <ol>
           <li>
@@ -256,7 +276,7 @@
             <span class="status"><span class="before">No longer needs it</span></span>
           </li>
         </ol>
-        <div class="ledger-foot">Not everyone books, and that's fine. Every outcome gets logged and reported back to you.</div>
+        <div class="ledger-foot">Booked or not, every outcome gets logged and reported back to you.</div>
       </div>
     </div>
   </div>
@@ -267,7 +287,7 @@
       <p class="intro">You already paid to get these people to reach out. Most businesses have more of them sitting untouched than they'd guess.</p>
       <ul class="slips">
         <li><b>Calls that got one try</b><p>Someone called back once, got voicemail, and the lead went cold.</p></li>
-        <li><b>Requests that sat too long</b><p>Web forms and messages that came in after hours, on weekends, or on a slammed day.</p></li>
+        <li><b>Leads that piled up</b><p>Forms, messages, and callbacks that stacked up after hours, on weekends, or during a slammed week.</p></li>
         <li><b>"Call me later" people</b><p>They were interested, just not that day, and nobody circled back.</p></li>
         <li><b>Quotes that went quiet</b><p>Estimates that never got a yes or a no because nobody followed up a second or third time.</p></li>
       </ul>
@@ -305,7 +325,7 @@
 
   <section class="faq" aria-labelledby="faq">
     <div class="wrap">
-      <h2 id="faq">Questions owners ask</h2>
+      <h2 id="faq">Questions business owners frequently ask</h2>
       <details>
         <summary>Do you generate new leads?</summary>
         <p>No. We work the leads you already have: people who called, filled out a form, or got a quote and never booked.</p>
@@ -337,6 +357,7 @@
         <a class="btn btn-primary" href="mailto:Jared@reclaimedrevenue.org?subject=Free%2010-minute%20list%20look">Email us</a>
         <a class="btn btn-secondary" href="tel:+18324792613">Call (832) 479-2613</a>
       </div>
+      <p class="hours">Open Monday through Saturday, 6 AM to 7 PM</p>
     </div>
   </div>
 </main>
@@ -344,7 +365,7 @@
 <footer>
   <div class="wrap">
     <p>© 2026 Reclaimed Revenue Solutions</p>
-    <p>Serving the Houston area</p>
+    <p><span class="nw">Serving the greater Houston area and beyond</span><span class="sep"> · </span><span class="nw">Mon–Sat, 6 AM–7 PM</span></p>
   </div>
 </footer>
 
