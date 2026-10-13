@@ -164,6 +164,12 @@
   }
   .nots b { color: var(--navy); }
 
+  .safe { padding: 56px 0; }
+  .safe-box { display: flex; gap: 20px; align-items: flex-start; max-width: 760px; }
+  .safe-icon { flex: none; width: 52px; height: 52px; border-radius: 50%; background: var(--green-tint); color: var(--green-text); display: grid; place-items: center; }
+  .safe h2 { margin: 6px 0 8px; }
+  .safe p { margin: 0; font-size: 18px; color: var(--ink); }
+
   .faq details { border-top: 1px solid var(--rule); }
   .faq details:last-child { border-bottom: 1px solid var(--rule); }
   .faq summary {
@@ -344,8 +350,8 @@
         <p class="intro" style="margin-bottom:0">Your customers are your reputation. We treat every call that way.</p>
       </div>
       <ul class="nots">
-        <li><b>No AI. No call center. Nobody overseas.</b> The people calling your customers are based in the greater Houston area, and they pay attention. If someone says "call me after the 15th," we call on the 16th.</li>
-        <li><b>No selling leads.</b> We only work the people who already reached out to you.</li>
+        <li><b>No AI. No call center. Nobody overseas.</b> We're a homegrown, independently owned business based in the greater Houston area. We listen, keep notes, and respect your customers' boundaries without ever losing sight of the booking. If someone says "call me after the 15th," we call on the 16th.</li>
+        <li><b>We are not a lead generation company.</b> We work <em>your</em> leads. Odds are you don't need another pile. You need someone to help work the one you have.</li>
         <li><b>No quoting your prices</b> or making promises on your behalf.</li>
         <li><b>No pressure.</b> If someone says stop, they're removed for good.</li>
         <li><b>No long contracts.</b> Month-to-month, or start with a small trial batch.</li>
@@ -353,7 +359,19 @@
     </div>
   </section>
 
-  <section class="faq tint" aria-labelledby="faq">
+  <section class="tint safe" aria-labelledby="safe">
+    <div class="wrap">
+      <div class="safe-box">
+        <span class="safe-icon" aria-hidden="true"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4.5" y="10.5" width="15" height="10" rx="2"/><path d="M8 10.5V7.5a4 4 0 0 1 8 0v3"/></svg></span>
+        <div>
+          <h2 id="safe">Your leads are safe with us.</h2>
+          <p>We don't share, sell, or show them to anyone else. What you send us stays between us.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="faq" aria-labelledby="faq">
     <div class="wrap">
       <h2 id="faq">Questions business owners frequently ask</h2>
       <details>
