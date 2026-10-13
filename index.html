@@ -92,6 +92,7 @@
   .btn-primary:hover { background: var(--navy-deep); border-color: var(--navy-deep); }
   .btn-secondary { background: transparent; color: var(--navy); }
   .btn-secondary:hover { background: var(--soft); }
+  .or { display: none; }
   .fine { font-size: 15px; color: var(--muted); margin: 18px 0 0; max-width: 34em; }
   .fine b { color: var(--navy); font-weight: 600; }
 
@@ -220,6 +221,9 @@
     .mark b { font-size: 19px; }
         .lede { font-size: 17px; }
     .btn { width: 100%; text-align: center; }
+    .actions { gap: 6px; }
+    .or { display: block; width: 100%; text-align: center; font-size: 14px; color: var(--muted); }
+    .close .or { color: #D6DEE8; }
     .ledger li { padding: 12px 16px; }
     .ledger-head, .ledger-foot { padding-left: 16px; padding-right: 16px; }
     .status { font-size: 12.5px; padding: 5px 10px; }
@@ -252,6 +256,7 @@
         <p class="lede">You already paid for these leads. We call the ones your team didn't get to or wrote off too soon, and book everyone who meets your criteria onto your calendar.</p>
         <div class="actions">
           <a class="btn btn-primary" href="mailto:Jared@reclaimedrevenue.org?subject=Free%2010-minute%20list%20assessment&amp;body=I%27d%20like%20a%20free%2010-minute%20list%20assessment.%0D%0A%0D%0AName%3A%0D%0ABusiness%20name%3A%0D%0ABest%20number%3A%0D%0ABest%20time%20to%20call%3A%0D%0A">Get a free 10-minute list assessment</a>
+          <span class="or" aria-hidden="true">or</span>
           <a class="btn btn-secondary" href="tel:+18324792613">Call (832) 479-2613</a>
         </div>
         <p class="fine"><b>What's a list assessment?</b> A free 10-minute call. You pull up your leads, we ask a few questions, and you get an honest read on whether anything's worth chasing. Nothing to send us.</p>
@@ -409,6 +414,7 @@
       <p>Ten minutes, no obligation. If there's nothing worth chasing, we'll tell you.</p>
       <div class="actions">
         <a class="btn btn-primary" href="mailto:Jared@reclaimedrevenue.org?subject=Free%2010-minute%20list%20assessment&amp;body=I%27d%20like%20a%20free%2010-minute%20list%20assessment.%0D%0A%0D%0AName%3A%0D%0ABusiness%20name%3A%0D%0ABest%20number%3A%0D%0ABest%20time%20to%20call%3A%0D%0A">Get a free 10-minute list assessment</a>
+        <span class="or" aria-hidden="true">or</span>
         <a class="btn btn-secondary" href="tel:+18324792613">Call (832) 479-2613</a>
       </div>
       <p class="hours">Open Monday through Saturday, 6 AM to 7 PM</p>
