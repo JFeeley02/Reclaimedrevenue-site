@@ -5,25 +5,35 @@
 <meta name="robots" content="noindex, nofollow, noarchive">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Reclaimed Revenue</title>
-<style>html,body{margin:0;background:#fff}</style>
+<style>
+html,body{margin:0;background:#fff;font:16px -apple-system,BlinkMacSystemFont,Arial,sans-serif;color:#1C1C1E}
+.box{max-width:420px;margin:18vh auto 0;padding:0 24px;text-align:center}
+.num{font-size:26px;font-weight:700;margin:6px 0 18px;letter-spacing:.2px}
+a.go{display:inline-block;background:#0A84FF;color:#fff;text-decoration:none;font-weight:700;padding:12px 22px;border-radius:999px}
+p.s{color:#6E6E73;font-size:14px;margin-top:18px}
+</style>
+</head>
+<body>
+<div class="box" id="box" hidden>
+  <div class="num" id="num"></div>
+  <a class="go" id="go" href="#">Open in Zoom</a>
+  <p class="s">If Zoom didn't open, click the button. Close this tab when you're done.</p>
+</div>
 <script>
 // Private helper for Reclaimed Revenue HQ's "Call in Zoom" button. Not linked anywhere on the site.
-// Opened as /dial.html#+18325551234 : hands the number to Zoom Phone, then closes this tab.
-// Anything else (no number, bad number) goes straight to the homepage.
+// Opened as /dial.html#+18325551234 : hands the number to Zoom Phone. Anything else goes to the homepage.
 (function () {
-  var raw = (location.hash || "").slice(1);
-  var digits = raw.replace(/[^0-9]/g, "");
+  var digits = (location.hash || "").slice(1).replace(/[^0-9]/g, "");
   if (!/^1?\d{10}$/.test(digits)) { location.replace("/"); return; }
   if (digits.length === 10) digits = "1" + digits;
+  var url = "zoomphonecall://+" + digits;
+  var d = digits.slice(1);
+  document.getElementById("num").textContent = "(" + d.slice(0, 3) + ") " + d.slice(3, 6) + "-" + d.slice(6);
+  document.getElementById("go").href = url;
+  document.getElementById("box").hidden = false;
   history.replaceState(null, "", location.pathname);
-  location.href = "zoomphonecall://+" + digits;
-  // Close only after Zoom takes focus (so the "Open zoom.us?" prompt is never cut off).
-  function done() { setTimeout(function () { window.close(); }, 300); }
-  window.addEventListener("blur", done);
-  document.addEventListener("visibilitychange", function () { if (document.hidden) done(); });
-  setTimeout(function () { var m = document.getElementById("m"); if (m) m.hidden = false; }, 4000);
+  location.href = url;
 })();
 </script>
-</head>
-<body><p id="m" hidden style="font:15px -apple-system,Arial,sans-serif;color:#555;padding:24px">Zoom should be open with the number. You can close this tab.</p></body>
+</body>
 </html>
