@@ -34,16 +34,13 @@ p.s{color:#6E6E73;font-size:14px;margin-top:18px}
   var isSafari = /^((?!chrome|chromium|crios|edg|android|fxios).)*safari/i.test(navigator.userAgent);
   if (!isSafari) {
     document.getElementById("go").remove();
-    document.querySelector(".s").textContent = "In Chrome's box above, check “Always allow” and click “Open zoom.us”. You'll only need to do this once.";
+    document.querySelector(".s").textContent = "In Chrome's box above, check “Always allow” and click “Open zoom.us”. You'll only need to do this once. Leave this tab open; HQ reuses it for every call.";
   }
   document.getElementById("box").hidden = false;
   history.replaceState(null, "", location.pathname);
+  document.title = "Dialing " + document.getElementById("num").textContent;
   location.href = url;
-  // Close only when focus comes BACK to this tab after leaving it (the "Open Zoom?" prompt or Zoom itself
-  // takes focus first). Closing on the way out cut the prompt off in both Safari and Chrome.
-  var left = false;
-  window.addEventListener("blur", function () { left = true; });
-  window.addEventListener("focus", function () { if (left) setTimeout(function () { window.close(); }, 800); });
+  // No auto-close: HQ reuses this one named tab for every call, so nothing piles up.
 })();
 </script>
 </body>
