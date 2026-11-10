@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Reclaimed Revenue Solutions | Lead follow-up and appointment setting</title>
-<meta name="description" content="You already paid for these leads. We call the ones your team didn&#39;t get to or wrote off too soon, and book everyone who meets your criteria onto your calendar. Serving the greater Houston area and beyond.">
+<meta name="description" content="You already paid for these leads. We call the ones your team didn&#39;t get to or wrote off too soon, and book the ones who meet your criteria onto your calendar. Serving the greater Houston area and beyond.">
 <meta property="og:title" content="Reclaimed Revenue Solutions">
 <meta property="og:description" content="We catch the leads that get away and send them back booked. Live phone follow-up on the leads you already have.">
 <meta property="og:type" content="website">
@@ -203,7 +203,36 @@
   footer p { margin: 0; }
   footer .nw { white-space: nowrap; }
 
+
+  /* Estimator */
+  .calc-sec { padding: 0 0 80px; }
+  .calc-card { display: grid; grid-template-columns: 1.1fr 1fr; border: 1px solid var(--rule); border-radius: 16px; overflow: hidden; background: var(--paper); box-shadow: 0 1px 0 var(--rule), 0 24px 48px -28px rgba(31, 58, 95, 0.35); }
+  .calc-in { padding: 32px; margin: 0; }
+  .calc-in h2 { font-size: clamp(26px, 2.8vw, 32px); margin: 0 0 6px; }
+  .calc-in .sub { color: var(--muted); margin: 0 0 22px; font-size: 16px; }
+  .field { display: block; margin: 0 0 16px; }
+  .field > span { display: block; font-weight: 600; color: var(--navy); font-size: 15.5px; margin-bottom: 6px; }
+  .field small { color: var(--muted); font-weight: 400; font-size: 14px; }
+  .field input { width: 100%; font: inherit; font-size: 18px; padding: 12px 14px; border: 1px solid #C3CDD8; border-radius: 10px; background: #fff; color: var(--ink); }
+  .field input:focus { outline: 3px solid var(--green); outline-offset: 1px; border-color: var(--green); }
+  .unit { position: relative; display: block; }
+  .unit i { position: absolute; top: 50%; transform: translateY(-50%); font-style: normal; color: var(--muted); font-size: 18px; pointer-events: none; }
+  .unit.pre i { left: 14px; } .unit.pre input { padding-left: 30px; }
+  .unit.suf i { right: 14px; } .unit.suf input { padding-right: 34px; }
+  .calc-out { padding: 32px; background: var(--soft); border-left: 1px solid var(--rule); display: flex; flex-direction: column; }
+  .calc-out .big { font-size: clamp(34px, 4.2vw, 48px); font-weight: 800; color: var(--navy); letter-spacing: -0.03em; line-height: 1.05; }
+  .calc-out .lbl { color: var(--ink); font-size: 16px; margin: 6px 0 4px; }
+  .calc-out .per { color: var(--muted); font-size: 15px; margin: 0 0 18px; }
+  .calc-out .row2 { border-top: 1px solid var(--rule); padding-top: 16px; margin-bottom: 4px; }
+  .calc-out .mid { font-size: 28px; font-weight: 800; color: var(--green-text); letter-spacing: -0.02em; line-height: 1.1; }
+  .calc-out .empty { color: var(--muted); }
+  .calc-note { font-size: 14px; color: var(--muted); margin: 16px 0 20px; }
+  .calc-out .btn { align-self: flex-start; margin-top: auto; }
   @media (max-width: 860px) {
+    .calc-card { grid-template-columns: 1fr; }
+    .calc-out { border-left: 0; border-top: 1px solid var(--rule); }
+    .calc-in, .calc-out { padding: 24px; }
+    .calc-sec { padding-bottom: 60px; }
     .hero { padding: 44px 0 56px; }
     .hero .wrap { grid-template-columns: 1fr; gap: 40px; }
     h1 { max-width: 17ch; }
@@ -254,11 +283,11 @@
     <div class="wrap">
       <div>
         <h1>We catch the leads that get away and send them back booked.</h1>
-        <p class="lede">You already paid for these leads. We call the ones your team didn't get to or wrote off too soon, and book everyone who meets your criteria onto your calendar.</p>
+        <p class="lede">You already paid for these leads. We call the ones your team didn't get to or wrote off too soon, and book the ones who meet your criteria onto your calendar.</p>
         <div class="actions">
-          <a class="btn btn-primary" href="mailto:Jared@reclaimedrevenue.org?subject=Free%2010-minute%20list%20assessment&amp;body=I%27d%20like%20a%20free%2010-minute%20list%20assessment.%0D%0A%0D%0AName%3A%0D%0ABusiness%20name%3A%0D%0ACall%20or%20email%3A%0D%0ABest%20number%3A%0D%0ABest%20time%20to%20call%3A%0D%0A">Request a free 10-minute list assessment</a>
+          <a class="btn btn-primary" href="https://calendly.com/jared-reclaimedrevenue-syau/10-minute-list-assessment" target="_blank" rel="noopener">Book your free 10-minute list assessment</a>
         </div>
-        <p class="fine"><b>What's a list assessment?</b> A free 10-minute call, or a few quick questions by email. Either way, you get an honest read on whether anything in your leads is worth chasing. No customer info needed.</p>
+        <p class="fine"><b>What's a list assessment?</b> A free 10-minute call where you pull up your own leads and get an honest read on whether anything is worth chasing. No customer info needed. Rather email? <a href="mailto:Jared@reclaimedrevenue.org?subject=Free%2010-minute%20list%20assessment&amp;body=I%27d%20like%20a%20free%2010-minute%20list%20assessment.%0D%0A%0D%0AName%3A%0D%0ABusiness%20name%3A%0D%0ACall%20or%20email%3A%0D%0ABest%20number%3A%0D%0ABest%20time%20to%20call%3A%0D%0A">Send Jared a note</a>.</p>
       </div>
 
       <div class="ledger" aria-label="Sample follow-up report, not real clients">
@@ -298,6 +327,31 @@
     </div>
   </div>
 
+  <section class="calc-sec" aria-labelledby="calc">
+    <div class="wrap">
+      <div class="calc-card">
+        <form class="calc-in" id="calc-form" onsubmit="return false">
+          <h2 id="calc">What are you leaving behind?</h2>
+          <p class="sub">Plug in your own numbers. Nothing you type is sent anywhere.</p>
+          <label class="field"><span>Unbooked quotes/estimates <small>(last 3 months)</small></span><input id="c-q" inputmode="numeric" placeholder="e.g. 120" autocomplete="off"></label>
+          <label class="field"><span>Average job value</span><span class="unit pre"><i>$</i><input id="c-v" inputmode="numeric" placeholder="e.g. 6,000" autocomplete="off"></span></label>
+          <label class="field"><span>What is your close rate percentage? <small>(an estimate is fine)</small></span><span class="unit suf"><input id="c-r" inputmode="numeric" placeholder="e.g. 35" autocomplete="off"><i>%</i></span></label>
+        </form>
+        <div class="calc-out" aria-live="polite">
+          <div class="big" id="c-total">$&mdash;</div>
+          <div class="lbl" id="c-total-l">Enter your numbers to see what's sitting there.</div>
+          <div class="per" id="c-month" hidden></div>
+          <div class="row2" id="c-appt-row" hidden>
+            <div class="mid" id="c-appt"></div>
+            <div class="lbl">what one appointment from that list is worth to you, at your close rate</div>
+          </div>
+          <p class="calc-note">This is the value of what's sitting there, not a promise of what we'll book. Nobody knows that until the list is worked. The free 10-minute assessment shows you how much of it is still worth chasing.</p>
+          <a class="btn btn-primary" href="https://calendly.com/jared-reclaimedrevenue-syau/10-minute-list-assessment" target="_blank" rel="noopener">Book your free 10-minute list assessment</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section class="tint" aria-labelledby="slip">
     <div class="wrap">
       <h2 id="slip">Where leads slip through</h2>
@@ -315,13 +369,14 @@
   <section aria-labelledby="who">
     <div class="wrap">
       <h2 id="who">Who we work with</h2>
-      <p class="intro">Built for businesses that live on <span style="white-space:nowrap">face-to-face</span> appointments.</p>
+      <p class="intro">Built for businesses that depend on inquiries turning into booked appointments.</p>
       <ul class="chips">
+        <li>HVAC</li>
+        <li>Foundation repair</li>
+        <li>Windows and siding</li>
         <li>Roofing</li>
         <li>Remodeling</li>
         <li>Fencing</li>
-        <li>Foundation repair</li>
-        <li>HVAC</li>
         <li>Plumbing</li>
         <li>Electrical</li>
         <li>Landscaping</li>
@@ -342,7 +397,7 @@
       <p class="intro">No new software. Your team keeps doing what it does best.</p>
       <ol class="steps">
         <li><div><b>You send the leads that haven't booked</b><p>A simple list or an export from whatever you already use.</p></div></li>
-        <li><div><b>We agree on your criteria</b><p>Over a quick call or by email: who to book, who not to book, and what to confirm first. You review and sign the final criteria before we start.</p></div></li>
+        <li><div><b>We agree on your criteria</b><p>Over a quick call or by email, we agree on who to book, who not to book, and what to confirm first. You approve the criteria before we start.</p></div></li>
         <li><div><b>We call, qualify, and book</b><p>Real people follow up by phone and book the ones who fit your criteria onto your calendar.</p></div></li>
         <li><div><b>You get every outcome</b><p>Booked, not a fit, no longer needs it: everything is logged and reported back to you.</p></div></li>
       </ol>
@@ -401,8 +456,12 @@
         <p>A 10-minute phone call, or a few quick questions by email. You pull up wherever your leads live, answer a few questions, and get an honest read on whether there's anything worth chasing. You never send us customer info.</p>
       </details>
       <details>
+        <summary>How many times will you call each lead?</summary>
+        <p>Up to six tries over about two weeks, at different times of day and only during normal hours. Anyone who asks us to stop is taken off right away.</p>
+      </details>
+      <details>
         <summary>How much does it cost?</summary>
-        <p>It depends on how many leads you send us. You choose which ones and how many, so you control the cost. You pay a monthly fee based on that volume, plus a flat fee for each appointment we book that meets your criteria. The appointment fee is due whether or not you win the job. The size of the job doesn't affect it. You'll get exact numbers in writing after the free assessment, before service is provided.</p>
+        <p>It depends on how many leads come to us each month. You pay a flat monthly fee based on that volume, plus a flat fee for each appointment we book that meets your criteria. Nothing per call or per hour, and it's month to month. The appointment fee is due whether or not you win the job, and the size of the job doesn't affect it. You'll get exact numbers in writing after the free assessment, before any work starts.</p>
       </details>
     </div>
   </section>
@@ -412,9 +471,9 @@
       <h2>See what's sitting in your lead list.</h2>
       <p>Ten minutes, no obligation. If there's nothing worth chasing, we'll tell you.</p>
       <div class="actions">
-        <a class="btn btn-primary" href="mailto:Jared@reclaimedrevenue.org?subject=Free%2010-minute%20list%20assessment&amp;body=I%27d%20like%20a%20free%2010-minute%20list%20assessment.%0D%0A%0D%0AName%3A%0D%0ABusiness%20name%3A%0D%0ACall%20or%20email%3A%0D%0ABest%20number%3A%0D%0ABest%20time%20to%20call%3A%0D%0A">Request a free 10-minute list assessment</a>
+        <a class="btn btn-primary" href="https://calendly.com/jared-reclaimedrevenue-syau/10-minute-list-assessment" target="_blank" rel="noopener">Book your free 10-minute list assessment</a>
         <span class="or" aria-hidden="true">or</span>
-        <a class="btn btn-secondary" href="tel:+18324471223">Call (832) 447-1223</a>
+        <a class="btn btn-secondary" href="tel:+18324471223">Questions? Call (832) 447-1223</a>
       </div>
       <p class="hours">Open Monday through Saturday, 6 AM to 7 PM</p>
       <p class="alt-email">Email: <a href="mailto:Jared@reclaimedrevenue.org">Jared@reclaimedrevenue.org</a></p>
@@ -430,6 +489,26 @@
 </footer>
 
 <script>
+  // Estimator: only the visitor's own numbers, no assumed booking rate.
+  (function () {
+    function num(id) { var v = document.getElementById(id).value.replace(/[^0-9.]/g, ""); return v === "" ? null : Number(v); }
+    function money(n) { return "$" + Math.round(n).toLocaleString("en-US"); }
+    function update() {
+      var q = num("c-q"), v = num("c-v"), r = num("c-r");
+      var tot = document.getElementById("c-total"), lbl = document.getElementById("c-total-l"), mo = document.getElementById("c-month");
+      if (q && v) {
+        tot.textContent = money(q * v); tot.classList.remove("empty");
+        lbl.textContent = "in unbooked quotes and estimates from the last 3 months";
+        mo.textContent = "About " + money(q * v / 3) + " a month."; mo.hidden = false;
+      } else {
+        tot.innerHTML = "$&mdash;"; lbl.textContent = "Enter your numbers to see what's sitting there."; mo.hidden = true;
+      }
+      var row = document.getElementById("c-appt-row");
+      if (v && r && r > 0 && r <= 100) { document.getElementById("c-appt").textContent = money(v * r / 100); row.hidden = false; } else row.hidden = true;
+    }
+    ["c-q", "c-v", "c-r"].forEach(function (id) { document.getElementById(id).addEventListener("input", update); });
+  })();
+
   // One orchestrated moment: unanswered leads flip to booked, one after another.
   (function () {
     var rows = document.querySelectorAll('[data-flip]');
