@@ -10,13 +10,13 @@
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://reclaimedrevenue.org/">
 <meta property="og:site_name" content="Reclaimed Revenue Solutions">
-<meta property="og:image" content="https://reclaimedrevenue.org/og.png?v=2">
+<meta property="og:image" content="https://reclaimedrevenue.org/og.png?v=3">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Reclaimed Revenue Solutions: We catch the leads that get away and send them back booked.">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="apple-touch-icon" href="/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png?v=2">
+<link rel="icon" type="image/png" sizes="180x180" href="/apple-touch-icon.png?v=2">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Young+Serif&family=Figtree:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -145,6 +145,15 @@
   button.crm-tab:hover { border-color: var(--navy); }
   button.crm-tab.on { background: var(--navy); border-color: var(--navy); color: #fff; box-shadow: none; }
   .crm-tab .s { display: none; }
+  .crm-panel.slide { animation: rr-slide .45s ease-out; }
+  .crm-panel.slide.from-left { animation-name: rr-slide-left; }
+  @keyframes rr-slide { from { transform: translateX(36px); opacity: 0; } to { transform: none; opacity: 1; } }
+  @keyframes rr-slide-left { from { transform: translateX(-36px); opacity: 0; } to { transform: none; opacity: 1; } }
+  .ledger.crm { overflow: hidden; }
+  button.crm-tab { position: relative; overflow: hidden; }
+  button.crm-tab.timing::after { content: ""; position: absolute; left: 0; bottom: 0; height: 3px; width: 100%; background: rgba(255,255,255,.75); transform-origin: left; animation: rr-timer 5s linear forwards; }
+  @keyframes rr-timer { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+  @media (prefers-reduced-motion: reduce) { .crm-panel.slide { animation: none; } button.crm-tab.timing::after { display: none; } }
   .crm-panel[hidden] { display: none; }
   .every { padding: 0 0 12px; }
   .el-cols { display: flex; justify-content: space-between; padding: 7px 20px; font-size: 11px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); border-bottom: 1px solid var(--rule); }
@@ -644,11 +653,40 @@
     };
     window.rrFlip(900, 650);
     var bar = document.querySelector('.crm-bar');
-    if (bar) bar.addEventListener('click', function (e) {
-      var b = e.target.closest('.crm-tab'); if (!b) return;
-      bar.querySelectorAll('.crm-tab').forEach(function (t) { var on = t === b; t.classList.toggle('on', on); t.setAttribute('aria-selected', String(on)); });
-      document.querySelectorAll('.crm-panel').forEach(function (p) { p.hidden = p.getAttribute('data-panel') !== b.getAttribute('data-tab'); });
-    });
+    var box = document.querySelector('.ledger.crm');
+    if (bar && box) {
+      var tabs = bar.querySelectorAll('.crm-tab');
+      var current = 0, rotate = null;
+      function showTab(i) {
+        var dir = i === 0 && current !== 0 ? 'from-left' : 'from-right';
+        current = i;
+        tabs.forEach(function (t, n) { var on = n === i; t.classList.toggle('on', on); t.setAttribute('aria-selected', String(on)); });
+        document.querySelectorAll('.crm-panel').forEach(function (p) {
+          var show = p.getAttribute('data-panel') === String(i);
+          p.hidden = !show;
+          if (show) { p.classList.remove('slide', 'from-left', 'from-right'); void p.offsetWidth; p.classList.add('slide', dir); }
+        });
+        if (rotate) { tabs.forEach(function (t) { t.classList.remove('timing'); }); void bar.offsetWidth; tabs[i].classList.add('timing'); }
+      }
+      function stopRotate() { if (rotate) { clearInterval(rotate); rotate = null; } tabs.forEach(function (t) { t.classList.remove('timing'); }); }
+      bar.addEventListener('click', function (e) {
+        var b = e.target.closest('.crm-tab'); if (!b) return;
+        stopRotate(); showTab(Number(b.getAttribute('data-tab')));
+      });
+      // Show each tab for 5 seconds; stop for good once the visitor picks a tab.
+      var still = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (!still) {
+        setTimeout(function () {
+          tabs[current].classList.add('timing');
+          rotate = setInterval(function () {
+            if (document.hidden) return;
+            var next = (current + 1) % tabs.length;
+            showTab(next);
+            if (next === 0) window.rrFlip(300, 450);
+          }, 5000);
+        }, 3000);
+      }
+    }
   })();
 </script>
 </body>
