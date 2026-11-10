@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Reclaimed Revenue</title>
+<style>html,body{margin:0;background:#fff}</style>
+<script>
+// Private helper for Reclaimed Revenue HQ's "Call in Zoom" button. Not linked anywhere on the site.
+// Opened as /dial.html#+18325551234 : hands the number to Zoom Phone, then closes this tab.
+// Anything else (no number, bad number) goes straight to the homepage.
+(function () {
+  var raw = (location.hash || "").slice(1);
+  var digits = raw.replace(/[^0-9]/g, "");
+  if (!/^1?\d{10}$/.test(digits)) { location.replace("/"); return; }
+  if (digits.length === 10) digits = "1" + digits;
+  history.replaceState(null, "", location.pathname);
+  location.href = "zoomphonecall://+" + digits;
+  setTimeout(function () { window.close(); }, 1500);
+  setTimeout(function () { var m = document.getElementById("m"); if (m) m.hidden = false; }, 2500);
+})();
+</script>
+</head>
+<body><p id="m" hidden style="font:15px -apple-system,Arial,sans-serif;color:#555;padding:24px">Zoom should be open with the number. You can close this tab.</p></body>
+</html>
