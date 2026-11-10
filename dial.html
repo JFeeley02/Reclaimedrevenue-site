@@ -30,6 +30,12 @@ p.s{color:#6E6E73;font-size:14px;margin-top:18px}
   var d = digits.slice(1);
   document.getElementById("num").textContent = "(" + d.slice(0, 3) + ") " + d.slice(3, 6) + "-" + d.slice(6);
   document.getElementById("go").href = url;
+  // Chrome/Edge: no backup button (it competes with Chrome's own prompt and its "Always allow" box).
+  var isSafari = /^((?!chrome|chromium|crios|edg|android|fxios).)*safari/i.test(navigator.userAgent);
+  if (!isSafari) {
+    document.getElementById("go").remove();
+    document.querySelector(".s").textContent = "In Chrome's box above, check “Always allow” and click “Open zoom.us”. You'll only need to do this once.";
+  }
   document.getElementById("box").hidden = false;
   history.replaceState(null, "", location.pathname);
   location.href = url;
