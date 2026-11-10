@@ -17,8 +17,11 @@
   if (digits.length === 10) digits = "1" + digits;
   history.replaceState(null, "", location.pathname);
   location.href = "zoomphonecall://+" + digits;
-  setTimeout(function () { window.close(); }, 1500);
-  setTimeout(function () { var m = document.getElementById("m"); if (m) m.hidden = false; }, 2500);
+  // Close only after Zoom takes focus (so the "Open zoom.us?" prompt is never cut off).
+  function done() { setTimeout(function () { window.close(); }, 300); }
+  window.addEventListener("blur", done);
+  document.addEventListener("visibilitychange", function () { if (document.hidden) done(); });
+  setTimeout(function () { var m = document.getElementById("m"); if (m) m.hidden = false; }, 4000);
 })();
 </script>
 </head>
