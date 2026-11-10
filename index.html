@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-theme="i">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -19,9 +19,9 @@
 <link rel="icon" type="image/png" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Young+Serif&family=Figtree:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"ProfessionalService","name":"Reclaimed Revenue Solutions","url":"https://reclaimedrevenue.org/","telephone":"+1-832-447-1223","email":"Jared@reclaimedrevenue.org","areaServed":"Houston, TX","openingHours":"Mo-Sa 06:00-19:00","description":"Live phone follow-up and appointment setting on the leads businesses already have."}
+{"@context":"https://schema.org","@type":"ProfessionalService","name":"Reclaimed Revenue Solutions","url":"https://reclaimedrevenue.org/","telephone":"+1-832-447-1223","email":"Jared@reclaimedrevenue.org","areaServed":"Houston, TX","openingHours":"Mo-Sa 08:00-18:00","description":"Live phone follow-up and appointment setting on the leads businesses already have."}
 </script>
 <style>
   :root {
@@ -129,6 +129,71 @@
   .status.booked .before { display: none; }
   .status.booked .after { display: inline; }
   .ledger-foot { padding: 12px 20px; font-size: 13px; color: var(--muted); background: var(--soft); border-top: 1px solid var(--rule); }
+
+  /* CRM-style follow-up list */
+  .crm-bar { display: flex; align-items: center; gap: 6px; padding: 10px 20px; border-bottom: 1px solid var(--rule); font-size: 13px; color: var(--muted); flex-wrap: wrap; }
+  .crit { display: inline-block; margin: 2px 6px 2px 0; padding: 1px 8px 1px 6px; border-radius: 4px; background: var(--paper); box-shadow: inset 0 0 0 1px var(--rule); font-weight: 600; color: var(--green-text); white-space: nowrap; }
+  .crit::before { content: "\2713"; margin-right: 4px; }
+  .crm .note .after { line-height: 1.9; }
+  .outcomes { padding: 12px 20px 14px; border-top: 1px solid var(--rule); font-size: 13px; }
+  .outcomes b { display: block; color: var(--ink); margin-bottom: 6px; }
+  .outcomes ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 6px; }
+  .ledger .outcomes li, .ledger .outcomes li:last-child { display: block; border-bottom: 0; }
+  .ledger .outcomes li { padding: 3px 9px; border-radius: 4px; background: var(--soft); color: var(--muted); font-weight: 600; font-size: 12.5px; }
+  .crm-intro { margin: 0; padding: 10px 20px; font-size: 13.5px; color: var(--ink); border-bottom: 1px solid var(--rule); }
+  button.crm-tab { font: inherit; font-size: 13px; font-weight: 600; border: 1px solid var(--rule); background: var(--paper); color: var(--navy); cursor: pointer; padding: 5px 11px; border-radius: 6px; box-shadow: 0 1px 0 var(--rule); }
+  button.crm-tab:hover { border-color: var(--navy); }
+  button.crm-tab.on { background: var(--navy); border-color: var(--navy); color: #fff; box-shadow: none; }
+  .crm-tab .s { display: none; }
+  .crm-panel[hidden] { display: none; }
+  .every { padding: 0 0 12px; }
+  .el-cols { display: flex; justify-content: space-between; padding: 7px 20px; font-size: 11px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); border-bottom: 1px solid var(--rule); }
+  .ledger .el { list-style: none; margin: 0; padding: 0; }
+  .ledger .el li { display: grid; grid-template-columns: 1fr auto; gap: 0 12px; align-items: center; padding: 8px 20px; border-bottom: 1px solid var(--rule); }
+  .el-name { font-weight: 600; font-size: 14px; color: var(--ink); }
+  .el-type { grid-column: 1; font-size: 12.5px; color: var(--muted); }
+  .el-out { grid-column: 2; grid-row: 1 / span 2; font-size: 12px; font-weight: 600; padding: 3px 9px; border-radius: 4px; background: var(--soft); color: var(--muted); white-space: nowrap; }
+  .el-out.ok { background: var(--green-tint); color: var(--green-text); }
+  .ledger .promise { display: flex; align-items: center; gap: 10px; margin: 12px 12px 0; padding: 10px 14px; border-radius: 8px; background: var(--navy); color: #fff; font-weight: 700; font-size: 14px; }
+  .promise-ic { flex: none; width: 22px; height: 22px; border-radius: 50%; background: #fff; color: var(--navy); display: grid; place-items: center; font-size: 13px; font-weight: 800; }
+  .every { padding-bottom: 12px; }
+  .crm-panel { min-height: 330px; }
+  .ledger .outcomes { border-top: 0; padding-top: 16px; }
+  .panel-note { margin: 10px 0 0; color: var(--muted); font-size: 12.5px; }
+  .learned { padding: 6px 20px 14px; }
+  .learned dl { margin: 0; }
+  .learned dt { margin-top: 12px; font-size: 11px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+  .learned dd { margin: 4px 0 0; padding: 8px 10px; font-size: 14px; color: var(--ink); background: var(--soft); border-left: 3px solid var(--green); border-radius: 4px; }
+  .crm-tab { padding: 4px 10px; border-radius: 6px; font-weight: 600; white-space: nowrap; }
+  .crm-tab b { font-weight: 700; color: var(--ink); margin-left: 2px; }
+  .crm-tab.on { background: var(--soft); color: var(--navy); box-shadow: inset 0 0 0 1px var(--rule); }
+  .crm-search { margin-left: auto; display: inline-flex; align-items: center; gap: 6px; padding: 4px 10px; border: 1px solid var(--rule); border-radius: 6px; color: #8A95A3; min-width: 120px; }
+  .crm-cols { display: flex; justify-content: space-between; padding: 7px 20px 7px 66px; font-size: 11px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); border-bottom: 1px solid var(--rule); }
+  .crm li { grid-template-columns: auto 1fr auto; gap: 1px 12px; align-items: start; }
+  .crm .ini { grid-column: 1; grid-row: 1 / span 2; width: 34px; height: 34px; border-radius: 50%; background: var(--soft); color: var(--navy); font-size: 12px; font-weight: 700; display: grid; place-items: center; box-shadow: inset 0 0 0 1px var(--rule); margin-top: 2px; }
+  .crm .who { grid-column: 2; grid-row: 1; }
+  .crm .src { grid-column: 2; grid-row: 2; }
+  .crm .src em, .crm .note em { font-style: normal; font-weight: 700; color: var(--ink); }
+  .crm .status { grid-column: 3; grid-row: 1 / span 2; align-self: center; }
+  .crm .note { grid-column: 2 / 4; grid-row: 3; margin-top: 7px; font-size: 13px; color: var(--ink); background: var(--soft); border-left: 3px solid var(--green); border-radius: 4px; padding: 6px 10px; line-height: 1.45; }
+  .crm .note .before { color: var(--muted); font-style: italic; }
+  .crm .note .after { display: none; }
+  .crm li.done .note .before { display: none; }
+  .crm li.done .note .after { display: inline; }
+  .status.closed .before { display: none; }
+  .status.closed .after { display: inline; }
+  @media (max-width: 520px) {
+    .crm-search { display: none; }
+    .crm-bar { gap: 6px; }
+    .crm-tab .l { display: none; }
+    .ledger .el li { padding: 8px 16px; }
+    .el-out { white-space: normal; text-align: right; max-width: 150px; }
+    .crm-tab .s { display: inline; }
+    .crm-bar, .crm-cols { padding-left: 16px; padding-right: 16px; }
+    .crm-cols { padding-left: 62px; }
+    .crm .status { grid-column: 2 / 4; grid-row: 3; justify-self: start; margin-top: 6px; }
+    .crm .note { grid-row: 4; grid-column: 1 / 4; }
+  }
 
   /* Sections */
   section { padding: 80px 0; }
@@ -261,6 +326,39 @@
   @media (prefers-reduced-motion: reduce) {
     .status, .faq summary::after { transition: none; }
   }
+
+  /* ===== Porch light theme ===== */
+  .mark .loc { display: none; font-style: normal; }
+  html[data-theme] .mark span { display: none; }
+  html[data-theme] .mark .loc { display: block; margin-top: 6px; }
+
+  /* I: Porch light: sand and terracotta, friendly serif, soft rounded shapes */
+  html[data-theme="i"] { --navy: #2A211C; --navy-deep: #120D0A; --ink: #3A302A; --muted: #7A6B60; --rule: #E7DACB; --soft: #F5EDE2; --green: #B4532A; --green-text: #9C4421; --green-tint: #F7E3D7; --paper: #FFFBF6; }
+  html[data-theme="i"] body { font-family: "Figtree", system-ui, sans-serif; }
+  html[data-theme="i"] h1, html[data-theme="i"] h2, html[data-theme="i"] .mark b { font-family: "Young Serif", Georgia, serif; font-weight: 400; letter-spacing: -0.015em; }
+  html[data-theme="i"] h1 { font-size: clamp(36px, 4.8vw, 58px); line-height: 1.06; }
+  html[data-theme="i"] .mark b { font-size: 24px; }
+  html[data-theme="i"] .mark .loc { color: #B4532A; font-size: 13.5px; font-weight: 700; }
+  html[data-theme="i"] .hero { background: linear-gradient(#FFFBF6, #F8EEE2); }
+  html[data-theme="i"] .btn { border-radius: 999px; font-weight: 700; padding: 14px 22px; }
+  html[data-theme="i"] .btn-primary { background: #B4532A; border-color: #B4532A; }
+  html[data-theme="i"] .btn-primary:hover { background: #97431F; border-color: #97431F; }
+  html[data-theme="i"] .ledger { border-radius: 20px; border: 1px solid #E7DACB; box-shadow: 0 30px 60px -36px rgba(90, 50, 20, .5); }
+  html[data-theme="i"] .status { border-radius: 999px; }
+  html[data-theme="i"] .status.booked { background: #B4532A; color: #fff; }
+  html[data-theme="i"] button.crm-tab { border-radius: 999px; }
+  html[data-theme="i"] .ledger .promise { border-radius: 14px; }
+  html[data-theme="i"] .calc-card { border-radius: 20px; box-shadow: 0 30px 60px -36px rgba(90, 50, 20, .5); }
+  html[data-theme="i"] .field input { border-radius: 12px; border: 1px solid #DCCBB9; }
+  html[data-theme="i"] .calc-out .big { font-family: "Young Serif", Georgia, serif; font-weight: 400; }
+  html[data-theme="i"] .chips li { border-radius: 999px; background: #fff; }
+  html[data-theme="i"] .steps li::before { background: #B4532A; }
+  html[data-theme="i"] .nots li::before { background: #B4532A; border-radius: 2px; }
+  html[data-theme="i"] .close { background: #B4532A; }
+  html[data-theme="i"] .close p, html[data-theme="i"] .close .hours, html[data-theme="i"] .close .alt-email { color: #FBE7DC; }
+  html[data-theme="i"] .close .btn-primary { background: #FFFBF6; border-color: #FFFBF6; color: #2A211C; }
+  html[data-theme="i"] .close .btn-primary:hover { background: #F5EDE2; border-color: #F5EDE2; }
+
 </style>
 </head>
 <body>
@@ -270,6 +368,7 @@
     <a class="mark" href="/" aria-label="Reclaimed Revenue Solutions, home">
       <b>Reclaimed Revenue</b>
       <span>SOLUTIONS</span>
+      <i class="loc">Real people booking real people.</i>
     </a>
     <div class="contact">
       <a href="tel:+18324471223"><svg aria-hidden="true" width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z"/></svg>(832) 447-1223</a>
@@ -287,42 +386,58 @@
         <div class="actions">
           <a class="btn btn-primary" href="https://calendly.com/jared-reclaimedrevenue-syau/10-minute-list-assessment" target="_blank" rel="noopener">Book your free 10-minute list assessment</a>
         </div>
-        <p class="fine"><b>What's a list assessment?</b> A free 10-minute call where you pull up your own leads and get an honest read on whether anything is worth chasing. No customer info needed. Rather email? <a href="mailto:Jared@reclaimedrevenue.org?subject=Free%2010-minute%20list%20assessment&amp;body=I%27d%20like%20a%20free%2010-minute%20list%20assessment.%0D%0A%0D%0AName%3A%0D%0ABusiness%20name%3A%0D%0ACall%20or%20email%3A%0D%0ABest%20number%3A%0D%0ABest%20time%20to%20call%3A%0D%0A">Send Jared a note</a>.</p>
+        <p class="fine"><b>What's a list assessment?</b> A free 10-minute call where you pull up your own leads and get an honest read on whether anything is worth chasing. No customer info needed. Rather email? <a href="mailto:Jared@reclaimedrevenue.org?subject=Free%2010-minute%20list%20assessment&amp;body=I%27d%20like%20a%20free%2010-minute%20list%20assessment.%0D%0A%0D%0AName%3A%0D%0ABusiness%20name%3A%0D%0ACall%20or%20email%3A%0D%0ABest%20number%3A%0D%0ABest%20time%20to%20call%3A%0D%0A">Send us a note!</a></p>
       </div>
 
-      <div class="ledger" aria-label="Sample follow-up report, not real clients">
+      <div class="ledger crm" aria-label="Sample results report, not real clients">
         <div class="ledger-head">
-          <strong>Your follow-up report</strong>
+          <strong>Your results report</strong>
           <small>Sample, not real clients</small>
         </div>
+        <div class="crm-bar" role="tablist" aria-label="Report sections">
+          <button type="button" class="crm-tab on" role="tab" aria-selected="true" data-tab="0"><span class="l">Appointments booked</span><span class="s">Booked</span></button>
+          <button type="button" class="crm-tab" role="tab" aria-selected="false" data-tab="1">Every lead</button>
+          <button type="button" class="crm-tab" role="tab" aria-selected="false" data-tab="2"><span class="l">What we learned</span><span class="s">Learned</span></button>
+        </div>
+        <div class="crm-panel" role="tabpanel" data-panel="0">
+        <div class="crm-cols" aria-hidden="true"><span>Customer</span><span>Appointment</span></div>
         <ol>
           <li>
+            <span class="ini" aria-hidden="true">MA</span>
             <span class="who">M. Alvarez</span>
-            <span class="src">Web request, came in Saturday night</span>
-            <span class="status" data-flip><span class="before">No reply yet</span><span class="after">Booked Tue 9:00 AM</span></span>
+            <span class="src"><em>Lead type:</em> Web form, never called back</span>
+            <span class="status" data-flip="booked"><span class="before">Calling</span><span class="after">Tue 9:00 AM</span></span>
+            <span class="note"><em>Criteria confirmed:</em> <span class="before">Checking your rules</span><span class="after"><span class="crit">Homeowner</span><span class="crit">In your service area</span><span class="crit">Wants a replacement quote</span></span></span>
           </li>
           <li>
+            <span class="ini" aria-hidden="true">DC</span>
             <span class="who">D. Chen</span>
-            <span class="src">Quote sent three weeks ago</span>
-            <span class="status" data-flip><span class="before">Went quiet</span><span class="after">Booked Thu 1:30 PM</span></span>
+            <span class="src"><em>Lead type:</em> Quote that went quiet</span>
+            <span class="status" data-flip="booked"><span class="before">Calling</span><span class="after">Thu 1:30 PM</span></span>
+            <span class="note"><em>Criteria confirmed:</em> <span class="before">Checking your rules</span><span class="after"><span class="crit">Homeowner</span><span class="crit">In your service area</span><span class="crit">Both owners will be there</span></span></span>
           </li>
           <li>
-            <span class="who">R. Okafor</span>
-            <span class="src">Missed call, one attempt back</span>
-            <span class="status"><span class="before">Not a fit</span></span>
-          </li>
-          <li>
+            <span class="ini" aria-hidden="true">KM</span>
             <span class="who">K. Morales</span>
-            <span class="src">Said "call me next week"</span>
-            <span class="status" data-flip><span class="before">Never called back</span><span class="after">Booked Mon 3:00 PM</span></span>
-          </li>
-          <li>
-            <span class="who">T. Nguyen</span>
-            <span class="src">Called during a busy morning</span>
-            <span class="status"><span class="before">No longer needs it</span></span>
+            <span class="src"><em>Lead type:</em> Said "call me next week"</span>
+            <span class="status" data-flip="booked"><span class="before">Calling</span><span class="after">Mon 3:00 PM</span></span>
+            <span class="note"><em>Criteria confirmed:</em> <span class="before">Checking your rules</span><span class="after"><span class="crit">Homeowner</span><span class="crit">In your service area</span><span class="crit">Decision-maker will be there</span></span></span>
           </li>
         </ol>
-        <div class="ledger-foot">Booked or not, every outcome gets logged and reported back to you.</div>
+        </div>
+        <div class="crm-panel every" role="tabpanel" data-panel="1" hidden>
+          <div class="el-cols" aria-hidden="true"><span>Lead</span><span>Outcome</span></div>
+          <ul class="el"><li><span class="el-name">M. Alvarez</span><span class="el-type">Web form</span><span class="el-out ok">Appointment booked</span></li><li><span class="el-name">J. Patel</span><span class="el-type">Quote, 2 months old</span><span class="el-out">No answer after all attempts</span></li><li><span class="el-name">R. Okafor</span><span class="el-type">Missed call</span><span class="el-out">Reached, didn't meet your criteria</span></li><li><span class="el-name">D. Chen</span><span class="el-type">Quote that went quiet</span><span class="el-out ok">Appointment booked</span></li><li><span class="el-name">S. Brooks</span><span class="el-type">Web form</span><span class="el-out">Reached, not interested</span></li><li><span class="el-name">T. Nguyen</span><span class="el-type">Web form</span><span class="el-out">Reached, no longer needs it</span></li><li><span class="el-name">L. Ortiz</span><span class="el-type">Missed call</span><span class="el-out">Invalid or disconnected number</span></li><li><span class="el-name">K. Morales</span><span class="el-type">Said "call me next week"</span><span class="el-out ok">Appointment booked</span></li></ul>
+          <p class="promise"><span class="promise-ic" aria-hidden="true">&#10003;</span>Every lead you send gets an outcome.</p>
+        </div>
+        <div class="crm-panel learned" role="tabpanel" data-panel="2" hidden>
+          <dl>
+            <dt>What worked</dt><dd>Old quotes picked up best on weekday evenings.</dd>
+            <dt>Why people didn't book</dt><dd>Timing was the top reason. Several asked for a call in the spring, so we set a time and put it on your schedule.</dd>
+            <dt>Worth knowing</dt><dd>Several quiet quotes were waiting on financing. Worth mentioning payment options when you send estimates.</dd>
+          </dl>
+        </div>
+        <div class="ledger-foot">Booked appointments go on your calendar as they happen. The full report comes monthly.</div>
       </div>
     </div>
   </div>
@@ -355,13 +470,13 @@
   <section class="tint" aria-labelledby="slip">
     <div class="wrap">
       <h2 id="slip">Where leads slip through</h2>
-      <p class="intro">Most businesses have more of them sitting untouched than they realize.</p>
+      <p class="intro">You probably know a few of these by name.</p>
       <ul class="slips">
-        <li><b>Calls that got one try</b><p>Someone called back once, got voicemail, and the lead went cold.</p></li>
-        <li><b>Leads that piled up</b><p>Forms, messages, and callbacks that stacked up after hours, on weekends, or during a slammed week.</p></li>
-        <li><b>"Call me later" people</b><p>They were interested, just not that day, and nobody circled back.</p></li>
-        <li><b>Quotes that went quiet</b><p>Estimates that never got a yes or a no because nobody followed up a second or third time.</p></li>
-        <li><b>Appointments that fell through</b><p>No-shows and cancellations nobody called to reschedule.</p></li>
+        <li><b>The quote from July that never got a second call</b><p>You sent the estimate, they said they'd think about it, and the busy season took over.</p></li>
+        <li><b>The web form that came in Saturday night</b><p>By Monday it was buried under twelve new calls, and nobody got back to it.</p></li>
+        <li><b>The guy who said "call me after the 15th"</b><p>He meant it. Nobody wrote it down.</p></li>
+        <li><b>The missed call you tried once</b><p>One callback, straight to voicemail, and it fell off the list.</p></li>
+        <li><b>The no-show nobody rescheduled</b><p>Something came up on their end, and the follow-up call never happened.</p></li>
       </ul>
     </div>
   </section>
@@ -399,9 +514,8 @@
         <li><div><b>You send the leads that haven't booked</b><p>A simple list or an export from whatever you already use.</p></div></li>
         <li><div><b>We agree on your criteria</b><p>Over a quick call or by email, we agree on who to book, who not to book, and what to confirm first. You approve the criteria before we start.</p></div></li>
         <li><div><b>We call, qualify, and book</b><p>Real people follow up by phone and book the ones who fit your criteria onto your calendar.</p></div></li>
-        <li><div><b>You get every outcome</b><p>Booked, not a fit, no longer needs it: everything is logged and reported back to you.</p></div></li>
-      </ol>
-    </div>
+        <li><div><b>You get every outcome</b><p>Booked, didn't meet your criteria, no longer needs it: every lead gets an outcome in your report.</p></div></li>
+      </ol>    </div>
   </section>
 
   <section aria-labelledby="not">
@@ -475,7 +589,7 @@
         <span class="or" aria-hidden="true">or</span>
         <a class="btn btn-secondary" href="tel:+18324471223">Questions? Call (832) 447-1223</a>
       </div>
-      <p class="hours">Open Monday through Saturday, 6 AM to 7 PM</p>
+      <p class="hours">Open Monday through Saturday, 8 AM to 6 PM</p>
       <p class="alt-email">Email: <a href="mailto:Jared@reclaimedrevenue.org">Jared@reclaimedrevenue.org</a></p>
     </div>
   </div>
@@ -484,7 +598,7 @@
 <footer>
   <div class="wrap">
     <p>© 2026 Reclaimed Revenue Solutions</p>
-    <p><span class="nw">Serving the greater Houston area and beyond</span><span class="sep"> · </span><span class="nw">Mon–Sat, 6 AM–7 PM</span></p>
+    <p><span class="nw">Serving the greater Houston area and beyond</span><span class="sep"> · </span><span class="nw">Mon–Sat, 8 AM–6 PM</span></p>
   </div>
 </footer>
 
@@ -509,13 +623,31 @@
     ["c-q", "c-v", "c-r"].forEach(function (id) { document.getElementById(id).addEventListener("input", update); });
   })();
 
-  // One orchestrated moment: unanswered leads flip to booked, one after another.
+  // One orchestrated moment: the list gets worked, one lead after another.
   (function () {
-    var rows = document.querySelectorAll('[data-flip]');
-    var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if (reduce) { rows.forEach(function (r) { r.classList.add('booked'); }); return; }
-    rows.forEach(function (r, i) {
-      setTimeout(function () { r.classList.add('booked'); }, 900 + i * 650);
+    var timers = [];
+    function finish(r) {
+      var kind = r.getAttribute('data-flip') || 'booked';
+      r.classList.add(kind);
+      var li = r.closest('li'); if (li) li.classList.add('done');
+      var c = document.querySelector('[data-count="' + kind + '"]');
+      if (c) c.textContent = String(Number(c.textContent) + 1);
+    }
+    window.rrFlip = function (start, step) {
+      timers.forEach(clearTimeout); timers = [];
+      var rows = document.querySelectorAll('[data-flip]');
+      rows.forEach(function (r) { r.classList.remove('booked', 'closed'); var li = r.closest('li'); if (li) li.classList.remove('done'); void r.offsetWidth; });
+      document.querySelectorAll('[data-count]').forEach(function (c) { c.textContent = '0'; });
+      var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (reduce) { rows.forEach(finish); return; }
+      rows.forEach(function (r, i) { timers.push(setTimeout(function () { finish(r); }, start + i * step)); });
+    };
+    window.rrFlip(900, 650);
+    var bar = document.querySelector('.crm-bar');
+    if (bar) bar.addEventListener('click', function (e) {
+      var b = e.target.closest('.crm-tab'); if (!b) return;
+      bar.querySelectorAll('.crm-tab').forEach(function (t) { var on = t === b; t.classList.toggle('on', on); t.setAttribute('aria-selected', String(on)); });
+      document.querySelectorAll('.crm-panel').forEach(function (p) { p.hidden = p.getAttribute('data-panel') !== b.getAttribute('data-tab'); });
     });
   })();
 </script>
