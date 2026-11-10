@@ -7,40 +7,39 @@
 <title>Reclaimed Revenue</title>
 <style>
 html,body{margin:0;background:#fff;font:16px -apple-system,BlinkMacSystemFont,Arial,sans-serif;color:#1C1C1E}
-.box{max-width:420px;margin:18vh auto 0;padding:0 24px;text-align:center}
-.num{font-size:26px;font-weight:700;margin:6px 0 18px;letter-spacing:.2px}
-a.go{display:inline-block;background:#0A84FF;color:#fff;text-decoration:none;font-weight:700;padding:12px 22px;border-radius:999px}
-p.s{color:#6E6E73;font-size:14px;margin-top:18px}
+.box{max-width:440px;margin:16vh auto 0;padding:0 24px;text-align:center}
+a.go{display:inline-block;background:#0A84FF;color:#fff;text-decoration:none;font-weight:800;font-size:24px;padding:18px 34px;border-radius:999px;outline:none}
+a.go:focus{box-shadow:0 0 0 5px #B9DAFF}
+p.s{color:#6E6E73;font-size:14px;margin-top:20px}
 </style>
 </head>
 <body>
 <div class="box" id="box" hidden>
-  <div class="num" id="num"></div>
-  <a class="go" id="go" href="#">Open in Zoom</a>
-  <p class="s">If Zoom didn't open, click the button. Close this tab when you're done.</p>
+  <a class="go" id="go" href="#">Call</a>
+  <p class="s" id="s">Press Enter or click to dial in Zoom.</p>
 </div>
 <script>
 // Private helper for Reclaimed Revenue HQ's "Call in Zoom" button. Not linked anywhere on the site.
-// Opened as /dial.html#+18325551234 : hands the number to Zoom Phone. Anything else goes to the homepage.
+// Opened as /dial.html?t=...#+18325551234. Chrome only lets a page open Zoom after a click ON this page,
+// so the Call button is pre-selected: press Enter (or click) -> Zoom dials -> this tab closes.
+// Anything without a valid US number goes to the homepage.
 (function () {
   var digits = (location.hash || "").slice(1).replace(/[^0-9]/g, "");
   if (!/^1?\d{10}$/.test(digits)) { location.replace("/"); return; }
   if (digits.length === 10) digits = "1" + digits;
   var url = "zoomphonecall://+" + digits;
-  var d = digits.slice(1);
-  document.getElementById("num").textContent = "(" + d.slice(0, 3) + ") " + d.slice(3, 6) + "-" + d.slice(6);
-  document.getElementById("go").href = url;
-  // Chrome/Edge: no backup button (it competes with Chrome's own prompt and its "Always allow" box).
-  var isSafari = /^((?!chrome|chromium|crios|edg|android|fxios).)*safari/i.test(navigator.userAgent);
-  if (!isSafari) {
-    document.getElementById("go").remove();
-    document.querySelector(".s").textContent = "In Chrome's box above, check “Always allow” and click “Open zoom.us”. You'll only need to do this once. Leave this tab open; HQ reuses it for every call.";
-  }
-  document.getElementById("box").hidden = false;
+  var d = digits.slice(1), pretty = "(" + d.slice(0, 3) + ") " + d.slice(3, 6) + "-" + d.slice(6);
+  var go = document.getElementById("go");
+  go.href = url;
+  go.textContent = "Call " + pretty;
+  document.title = "Call " + pretty;
   history.replaceState(null, "", location.pathname);
-  document.title = "Dialing " + document.getElementById("num").textContent;
-  location.href = url;
-  // No auto-close: HQ reuses this one named tab for every call, so nothing piles up.
+  document.getElementById("box").hidden = false;
+  go.focus();
+  go.addEventListener("click", function () {
+    document.getElementById("s").textContent = "Dialing in Zoom…";
+    setTimeout(function () { window.close(); }, 1500);
+  });
 })();
 </script>
 </body>
