@@ -33,6 +33,13 @@ p.s{color:#6E6E73;font-size:14px;margin-top:18px}
   document.getElementById("box").hidden = false;
   history.replaceState(null, "", location.pathname);
   location.href = url;
+  // Chrome/Edge: close the tab once Zoom takes focus. Safari: leave it open (its prompt would trigger this too early).
+  var isSafari = /^((?!chrome|chromium|crios|edg|android|fxios).)*safari/i.test(navigator.userAgent);
+  if (!isSafari) {
+    var done = function () { setTimeout(function () { window.close(); }, 300); };
+    window.addEventListener("blur", done);
+    document.addEventListener("visibilitychange", function () { if (document.hidden) done(); });
+  }
 })();
 </script>
 </body>
