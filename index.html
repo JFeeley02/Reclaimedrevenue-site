@@ -145,6 +145,9 @@
   button.crm-tab:hover { border-color: var(--navy); }
   button.crm-tab.on { background: var(--navy); border-color: var(--navy); color: #fff; box-shadow: none; }
   .crm-tab .s { display: none; }
+  .crm-stack { display: grid; }
+  .crm-stack > .crm-panel { grid-area: 1 / 1; }
+  .crm-stack > .crm-panel[hidden] { display: block; visibility: hidden; }
   .crm-panel.slide { animation: rr-slide .45s ease-out; }
   .crm-panel.slide.from-left { animation-name: rr-slide-left; }
   @keyframes rr-slide { from { transform: translateX(36px); opacity: 0; } to { transform: none; opacity: 1; } }
@@ -166,7 +169,6 @@
   .ledger .promise { display: flex; align-items: center; gap: 10px; margin: 12px 12px 0; padding: 10px 14px; border-radius: 8px; background: var(--navy); color: #fff; font-weight: 700; font-size: 14px; }
   .promise-ic { flex: none; width: 22px; height: 22px; border-radius: 50%; background: #fff; color: var(--navy); display: grid; place-items: center; font-size: 13px; font-weight: 800; }
   .every { padding-bottom: 12px; }
-  .crm-panel { min-height: 330px; }
   .ledger .outcomes { border-top: 0; padding-top: 16px; }
   .panel-note { margin: 10px 0 0; color: var(--muted); font-size: 12.5px; }
   .learned { padding: 6px 20px 14px; }
@@ -408,6 +410,7 @@
           <button type="button" class="crm-tab" role="tab" aria-selected="false" data-tab="1">Every lead</button>
           <button type="button" class="crm-tab" role="tab" aria-selected="false" data-tab="2"><span class="l">What we learned</span><span class="s">Learned</span></button>
         </div>
+        <div class="crm-stack">
         <div class="crm-panel" role="tabpanel" data-panel="0">
         <div class="crm-cols" aria-hidden="true"><span>Customer</span><span>Appointment</span></div>
         <ol>
@@ -442,9 +445,10 @@
         <div class="crm-panel learned" role="tabpanel" data-panel="2" hidden>
           <dl>
             <dt>What worked</dt><dd>Old quotes picked up best on weekday evenings.</dd>
-            <dt>Why people didn't book</dt><dd>Timing was the top reason. Several asked for a call in the spring, so we set a time and put it on your schedule.</dd>
+            <dt>Why people didn't book</dt><dd>Timing was the top reason. Several asked for a call in the spring, so we set a date with each one and made a note for you to put on your schedule, free of charge.</dd>
             <dt>Worth knowing</dt><dd>Several quiet quotes were waiting on financing. Worth mentioning payment options when you send estimates.</dd>
           </dl>
+        </div>
         </div>
         <div class="ledger-foot">Booked appointments go on your calendar as they happen. The full report comes monthly.</div>
       </div>
@@ -674,6 +678,27 @@
         stopRotate(); showTab(Number(b.getAttribute('data-tab')));
       });
       // Show each tab for 5 seconds; stop for good once the visitor picks a tab.
+
+      // Keep the box the same height no matter which tab or animation step is showing,
+      // so nothing below it moves while someone is using the page.
+      var stack = box.querySelector('.crm-stack');
+      function lockHeight() {
+        stack.style.minHeight = '';
+        var lis = box.querySelectorAll('.crm-panel li'), st = box.querySelectorAll('[data-flip]');
+        var wasDone = [], wasCls = [];
+        lis.forEach(function (l, n) { wasDone[n] = l.classList.contains('done'); l.classList.add('done'); });
+        st.forEach(function (r, n) { wasCls[n] = r.className; r.classList.add(r.getAttribute('data-flip') || 'booked'); });
+        var hDone = stack.offsetHeight;
+        lis.forEach(function (l) { l.classList.remove('done'); });
+        st.forEach(function (r) { r.classList.remove('booked', 'closed'); });
+        var hBefore = stack.offsetHeight;
+        lis.forEach(function (l, n) { l.classList.toggle('done', wasDone[n]); });
+        st.forEach(function (r, n) { r.className = wasCls[n]; });
+        stack.style.minHeight = Math.max(hDone, hBefore) + 'px';
+      }
+      lockHeight();
+      if (document.fonts && document.fonts.ready) document.fonts.ready.then(lockHeight);
+      var rt; window.addEventListener('resize', function () { clearTimeout(rt); rt = setTimeout(lockHeight, 150); });
       var still = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
       if (!still) {
         setTimeout(function () {
