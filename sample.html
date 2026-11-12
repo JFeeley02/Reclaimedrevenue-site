@@ -1,0 +1,226 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sample Monthly Lead Analysis | Reclaimed Revenue Solutions</title>
+<meta name="description" content="A sample of the monthly lead analysis every Reclaimed Revenue client gets: outcomes, why leads didn't book, what's still worth chasing, patterns by lead source and timing, and plain recommendations.">
+<meta name="robots" content="index,follow">
+<link rel="icon" href="/favicon.ico?v=3" sizes="any">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Young+Serif&family=Figtree:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #2A211C; --body: #3A302A; --muted: #7A6B60; --rule: #E7DACB;
+    --sand: #F5EDE2; --paper: #FFFBF6; --clay: #B4532A; --clay-text: #9C4421; --clay-tint: #F7E3D7;
+    --slate: #3D5A66; --slate-tint: #E7EEF0; --max: 980px;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--paper); color: var(--body); font: 16px/1.6 "Figtree", system-ui, sans-serif; }
+  h1, h2 { font-family: "Young Serif", Georgia, serif; font-weight: 400; color: var(--ink); letter-spacing: -0.015em; text-wrap: balance; margin: 0; }
+  a { color: var(--clay-text); }
+  .wrap { max-width: var(--max); margin: 0 auto; padding-left: max(20px, env(safe-area-inset-left, 0px)); padding-right: max(20px, env(safe-area-inset-right, 0px)); }
+  header.top { border-bottom: 1px solid var(--rule); }
+  header.top .wrap { display: flex; justify-content: space-between; align-items: center; gap: 16px; padding-block: 18px; }
+  .mark { text-decoration: none; line-height: 1.15; }
+  .mark b { display: block; font-family: "Young Serif", Georgia, serif; font-weight: 400; font-size: 22px; color: var(--ink); }
+  .mark i { display: block; font-style: normal; font-size: 13px; font-weight: 700; color: var(--clay); }
+  .back { font-weight: 600; font-size: 15px; text-decoration: none; color: var(--ink); }
+  .back:hover { text-decoration: underline; }
+
+  .intro { background: linear-gradient(#FFFBF6, #F8EEE2); border-bottom: 1px solid var(--rule); }
+  .intro .wrap { padding-block: 44px 36px; }
+  .flag { display: inline-block; background: var(--ink); color: #fff; font-weight: 700; font-size: 13px; padding: 6px 12px; border-radius: 999px; margin-bottom: 18px; }
+  .intro h1 { font-size: clamp(32px, 4.4vw, 48px); line-height: 1.08; }
+  .intro p { max-width: 40em; margin: 14px 0 0; font-size: 17.5px; }
+  .meta { display: flex; flex-wrap: wrap; gap: 8px 22px; margin-top: 20px; font-size: 14.5px; color: var(--muted); }
+  .meta b { color: var(--ink); font-weight: 700; }
+
+  main .wrap { padding-block: 36px 56px; display: grid; gap: 22px; }
+  .card { background: #fff; border: 1px solid var(--rule); border-radius: 20px; padding: 26px 26px 24px; box-shadow: 0 24px 50px -40px rgba(90, 50, 20, .55); min-width: 0; }
+  .card h2 { font-size: 24px; line-height: 1.2; }
+  .card .sub { color: var(--muted); margin: 4px 0 18px; font-size: 15px; }
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
+
+  .tiles { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+  .tile { background: var(--sand); border-radius: 14px; padding: 14px 14px 12px; }
+  .tile .n { font-family: "Young Serif", Georgia, serif; font-size: 30px; line-height: 1; color: var(--ink); font-variant-numeric: tabular-nums; }
+  .tile .l { font-size: 13.5px; color: var(--muted); margin-top: 6px; line-height: 1.35; }
+  .tile.hi { background: var(--clay); }
+  .tile.hi .n, .tile.hi .l { color: #fff; }
+
+  table { width: 100%; border-collapse: collapse; font-variant-numeric: tabular-nums; }
+  td, th { padding: 9px 0; border-bottom: 1px solid var(--rule); text-align: left; font-size: 15px; }
+  th { font-size: 12.5px; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); font-weight: 700; }
+  td.num, th.num { text-align: right; white-space: nowrap; padding-left: 12px; }
+  tr:last-child td { border-bottom: 0; }
+
+  .bars { display: grid; gap: 14px; }
+  .bar .top { display: flex; justify-content: space-between; gap: 12px; font-size: 15px; }
+  .bar .top b { color: var(--ink); font-weight: 600; }
+  .bar .top span { color: var(--muted); white-space: nowrap; font-variant-numeric: tabular-nums; }
+  .track { height: 10px; background: var(--sand); border-radius: 999px; margin-top: 6px; overflow: hidden; }
+  .fill { height: 100%; background: var(--clay); border-radius: 999px; }
+  .fill.slate { background: var(--slate); }
+  .bar.early .fill { background: repeating-linear-gradient(45deg, #D8C6B4 0 6px, #EADBCB 6px 12px); }
+  .bars h3 { margin: 0 0 -4px; font-size: 13px; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); font-weight: 700; }
+  .bars h3:not(:first-child) { margin-top: 8px; }
+  .tag { display: inline-block; font-size: 12px; font-weight: 700; padding: 2px 9px; border-radius: 999px; background: var(--slate-tint); color: var(--slate); margin-left: 6px; vertical-align: 1px; }
+
+  .split { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 14px; }
+  .pile { border-radius: 14px; padding: 16px; }
+  .pile.keep { background: var(--clay-tint); }
+  .pile.gone { background: var(--sand); }
+  .pile .n { font-family: "Young Serif", Georgia, serif; font-size: 34px; line-height: 1; color: var(--ink); }
+  .pile .l { font-weight: 700; color: var(--ink); margin-top: 6px; }
+  .pile p { margin: 4px 0 0; font-size: 14.5px; color: var(--body); }
+
+  .trend { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; text-align: center; }
+  .trend .m { background: var(--sand); border-radius: 14px; padding: 14px 10px; }
+  .trend .m.now { background: var(--clay-tint); outline: 2px solid var(--clay); }
+  .trend .k { font-size: 13px; font-weight: 700; color: var(--muted); }
+  .trend .v { font-family: "Young Serif", Georgia, serif; font-size: 26px; color: var(--ink); line-height: 1.1; margin-top: 4px; }
+  .trend .d { font-size: 13.5px; color: var(--body); margin-top: 4px; line-height: 1.35; }
+  .note { font-size: 14.5px; color: var(--muted); margin: 14px 0 0; }
+
+  ol.recs { margin: 0; padding: 0; list-style: none; display: grid; gap: 12px; counter-reset: r; }
+  ol.recs li { counter-increment: r; display: grid; grid-template-columns: 34px 1fr; gap: 12px; align-items: start; background: var(--sand); border-radius: 14px; padding: 14px 16px; }
+  ol.recs li::before { content: counter(r); width: 30px; height: 30px; border-radius: 50%; background: var(--clay); color: #fff; font-weight: 800; display: grid; place-items: center; }
+  ol.recs b { color: var(--ink); display: block; }
+  ol.recs span { font-size: 15px; }
+
+  .cta { background: var(--clay); color: #fff; border-radius: 20px; padding: 30px 26px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 18px; }
+  .cta h2 { color: #fff; font-size: 26px; }
+  .cta p { margin: 6px 0 0; color: #FBE7DC; max-width: 34em; }
+  .btn { display: inline-block; background: #FFFBF6; color: var(--ink); font-weight: 700; text-decoration: none; padding: 14px 22px; border-radius: 999px; }
+  .btn:hover { background: #F5EDE2; }
+  .btn:focus-visible, a:focus-visible { outline: 3px solid var(--ink); outline-offset: 2px; }
+  footer { border-top: 1px solid var(--rule); color: var(--muted); font-size: 14px; }
+  footer .wrap { padding-block: 22px; }
+
+  @media (max-width: 760px) {
+    .grid2, .split { grid-template-columns: 1fr; }
+    .tiles { grid-template-columns: repeat(2, 1fr); }
+    .card { padding: 22px 18px 20px; }
+    .trend .v { font-size: 22px; }
+  }
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <a class="mark" href="/"><b>Reclaimed Revenue</b><i>Real people booking real people.</i></a>
+    <a class="back" href="/">Back to home</a>
+  </div>
+</header>
+
+<section class="intro">
+  <div class="wrap">
+    <span class="flag">Sample report, not a real client</span>
+    <h1>Monthly lead analysis</h1>
+    <p>This is what a client gets every month, shown here for a sample HVAC company in its third month with us. Every number below comes from the calls we made on their leads. In a real report, every finding has the counts behind it, and anything still too thin is labeled too early to tell.</p>
+    <div class="meta"><span><b>Month 3</b> of service</span><span><b>150</b> leads worked this month</span><span><b>612</b> calls made</span></div>
+  </div>
+</section>
+
+<main>
+  <div class="wrap">
+
+    <section class="card" aria-labelledby="h-out">
+      <h2 id="h-out">This month's outcomes</h2>
+      <p class="sub">Every lead you sent, with what happened.</p>
+      <div class="tiles">
+        <div class="tile hi"><div class="n">14</div><div class="l">Appointments booked on your calendar</div></div>
+        <div class="tile"><div class="n">9</div><div class="l">Want a call later (dates noted for you)</div></div>
+        <div class="tile"><div class="n">53</div><div class="l">Not interested or already hired someone</div></div>
+        <div class="tile"><div class="n">74</div><div class="l">No answer, bad number, or didn't meet your criteria</div></div>
+      </div>
+    </section>
+
+    <div class="grid2">
+      <section class="card" aria-labelledby="h-why">
+        <h2 id="h-why">Why people didn't book</h2>
+        <p class="sub">What the 62 people we reached, who didn't book, told us.</p>
+        <table>
+          <thead><tr><th>Reason</th><th class="num">People</th></tr></thead>
+          <tbody>
+            <tr><td>Went with another company</td><td class="num">22</td></tr>
+            <tr><td>Price was higher than expected</td><td class="num">14</td></tr>
+            <tr><td>Waiting until spring</td><td class="num">9</td></tr>
+            <tr><td>Waiting on financing</td><td class="num">8</td></tr>
+            <tr><td>Decided to repair instead of replace</td><td class="num">6</td></tr>
+            <tr><td>No reason given</td><td class="num">3</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="card" aria-labelledby="h-chase">
+        <h2 id="h-chase">Still worth chasing</h2>
+        <p class="sub">Your 140 quotes older than 30 days, sorted.</p>
+        <div class="split">
+          <div class="pile keep"><div class="n">31</div><div class="l">Still worth working</div><p>Still deciding, or asked for a call at a later date.</p></div>
+          <div class="pile gone"><div class="n">109</div><div class="l">Gone</div><p>Hired someone else, dropped the project, or the number is dead.</p></div>
+        </div>
+        <p class="note">We keep working the 31. The 109 come off the list, so nobody on your team wastes time on them.</p>
+      </section>
+    </div>
+
+    <section class="card" aria-labelledby="h-pat">
+      <h2 id="h-pat">Patterns</h2>
+      <p class="sub">Booking rate by lead source, by how old the quote was, and when your customers picked up.</p>
+      <div class="grid2">
+        <div class="bars" aria-label="Booked by lead source">
+          <h3>By lead source</h3>
+          <div class="bar"><div class="top"><b>Website forms</b><span>6 of 42 booked (14%)</span></div><div class="track"><div class="fill" style="width:70%"></div></div></div>
+          <div class="bar"><div class="top"><b>Missed calls</b><span>4 of 38 (11%)</span></div><div class="track"><div class="fill" style="width:55%"></div></div></div>
+          <div class="bar"><div class="top"><b>Angi leads</b><span>2 of 55 (4%)</span></div><div class="track"><div class="fill" style="width:20%"></div></div></div>
+          <div class="bar early"><div class="top"><b>Referrals <em class="tag">Too early to tell</em></b><span>2 of 15</span></div><div class="track"><div class="fill" style="width:65%"></div></div></div>
+        </div>
+        <div class="bars" aria-label="Booked by quote age and call time">
+          <h3>By quote age</h3>
+          <div class="bar"><div class="top"><b>Quotes under 2 weeks old</b><span>7 of 40 booked (18%)</span></div><div class="track"><div class="fill" style="width:90%"></div></div></div>
+          <div class="bar"><div class="top"><b>2 to 8 weeks old</b><span>5 of 52 (10%)</span></div><div class="track"><div class="fill" style="width:50%"></div></div></div>
+          <div class="bar"><div class="top"><b>Over 2 months old</b><span>2 of 58 (3%)</span></div><div class="track"><div class="fill" style="width:15%"></div></div></div>
+          <h3>When they picked up</h3>
+          <div class="bar"><div class="top"><b>Weekdays 5 to 7 PM</b><span>41% picked up</span></div><div class="track"><div class="fill slate" style="width:82%"></div></div></div>
+          <div class="bar"><div class="top"><b>Weekdays 12 to 3 PM</b><span>19% picked up</span></div><div class="track"><div class="fill slate" style="width:38%"></div></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="card" aria-labelledby="h-trend">
+      <h2 id="h-trend">How the picture has filled in</h2>
+      <p class="sub">Each month builds on the last.</p>
+      <div class="trend">
+        <div class="m"><div class="k">Month 1</div><div class="v">9 booked</div><div class="d">Outcomes and reasons only. Patterns too early to tell.</div></div>
+        <div class="m"><div class="k">Month 2</div><div class="v">12 booked</div><div class="d">Quote age and best call times confirmed.</div></div>
+        <div class="m now"><div class="k">Month 3</div><div class="v">14 booked</div><div class="d">Lead source confirmed. Referrals still too early to tell.</div></div>
+      </div>
+      <p class="note">Bookings rose as we moved calls to the hours your customers actually answer. Results vary with every list, and we never promise a number.</p>
+    </section>
+
+    <section class="card" aria-labelledby="h-rec">
+      <h2 id="h-rec">Our recommendations</h2>
+      <p class="sub">Plain changes on your end, based on what the calls showed.</p>
+      <ol class="recs">
+        <li><div><b>Get a second call out within 2 days.</b><span>Quotes under 2 weeks old booked at 18%. After 2 months, only 3% did.</span></div></li>
+        <li><div><b>Take a hard look at what you pay for Angi leads.</b><span>They booked at 4%, about a third of the rate of your own website forms.</span></div></li>
+        <li><div><b>Mention payment options on every estimate.</b><span>8 people told us they were waiting on financing before deciding.</span></div></li>
+      </ol>
+    </section>
+
+    <section class="cta" aria-labelledby="h-cta">
+      <div>
+        <h2 id="h-cta">See what's sitting in your own list.</h2>
+        <p>The free 10-minute list assessment gives you an honest read on whether there's enough there to be worth chasing. You never send us customer info.</p>
+      </div>
+      <a class="btn" href="https://calendly.com/jared-reclaimedrevenue-syau/10-minute-list-assessment" target="_blank" rel="noopener">Book your free list assessment</a>
+    </section>
+
+  </div>
+</main>
+
+<footer><div class="wrap">Sample report for illustration. The company and numbers are made up to show the format, not real client results.</div></footer>
+</body>
+</html>
