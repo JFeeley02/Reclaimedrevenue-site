@@ -250,6 +250,20 @@
 
   .sample-link { margin: 10px 12px 0; font-weight: 700; font-size: 14.5px; }
   .sample-link a { color: var(--green-text); }
+  .hero-sample { font-weight: 700; color: var(--green-text); white-space: nowrap; }
+  .an-sec { padding: 56px 0 0; }
+  .an-card { display: grid; grid-template-columns: 1.15fr 1fr; gap: 36px; align-items: center; background: #fff; border: 1px solid var(--rule); border-radius: 24px; padding: 36px; box-shadow: 0 30px 60px -40px rgba(90, 50, 20, .5); }
+  .an-text h2 { margin: 0 0 12px; }
+  .an-text p { margin: 0 0 22px; max-width: 36em; }
+  .an-peek { background: var(--soft); border-radius: 18px; padding: 20px; }
+  .an-flag { display: inline-block; font-size: 12px; font-weight: 700; color: var(--muted); margin-bottom: 10px; }
+  .an-row { display: flex; justify-content: space-between; gap: 12px; font-size: 14.5px; margin-top: 10px; }
+  .an-row b { color: var(--navy); font-variant-numeric: tabular-nums; }
+  .an-bar { height: 8px; background: #fff; border-radius: 999px; margin-top: 5px; overflow: hidden; }
+  .an-bar i { display: block; height: 100%; background: var(--green); border-radius: 999px; }
+  .an-rec { margin-top: 16px; font-size: 14.5px; background: #fff; border-radius: 12px; padding: 10px 12px; }
+  .an-rec b { color: var(--navy); }
+  @media (max-width: 820px) { .an-card { grid-template-columns: 1fr; padding: 24px 20px; gap: 22px; } }
   .lede:has(+ .lede-plus) { margin-bottom: 14px; }
   .lede.lede-plus { margin-top: 0; font-size: 1em; font-weight: 600; color: var(--ink); }
   .faq details { border-top: 1px solid var(--rule); }
@@ -399,7 +413,7 @@
       <div>
         <h1>We catch the leads that get away and send them back booked.</h1>
         <p class="lede">You already paid for these leads. We call the ones your team didn't get to or wrote off too soon, and book the ones who meet your criteria onto your calendar.</p>
-        <p class="lede lede-plus">Plus a complete lead analysis every month: why the rest didn&rsquo;t book, broken down by lead source, timing and reason.</p>
+        <p class="lede lede-plus">Plus a complete lead analysis every month: why the rest didn&rsquo;t book, broken down by lead source, timing and reason. <a class="hero-sample" href="/sample.html">See a sample report</a></p>
         <div class="actions">
           <a class="btn btn-primary" href="https://calendly.com/jared-reclaimedrevenue-syau/10-minute-list-assessment" target="_blank" rel="noopener">Book your free 10-minute list assessment</a>
         </div>
@@ -537,6 +551,26 @@
         <li><div><b>We agree on your criteria</b><p>Over a quick call or by email, we agree on who to book, who not to book, and what to confirm first. You approve the criteria before we start.</p></div></li>
         <li><div><b>We call, qualify, and book</b><p>Real people follow up<li><div><b>You get every outcome, and the analysis behind it</b><p>Every lead gets an outcome in your monthly report, along with a full breakdown of what the calls showed: which lead sources book, when your customers are easiest to reach, the most common reasons people didn't book, which of your older leads are still worth chasing, and plain recommendations you can act on. Each month builds on the last, so the longer we work your leads, the clearer the picture gets.</p></div></li>ook, when they were easiest to reach, and anything worth changing on your end.</p></div></li>
       </ol>    </div>
+  </section>
+
+  <section class="an-sec" aria-labelledby="an">
+    <div class="wrap">
+      <div class="an-card">
+        <div class="an-text">
+          <h2 id="an">A complete lead analysis, every month</h2>
+          <p>Every lead you send gets an outcome, and every month you get the full picture: why people didn't book, which older leads are still worth chasing, which lead sources actually pay off, when your customers pick up, and plain recommendations for your end. It gets clearer every month we work your list.</p>
+          <a class="btn btn-primary" href="/sample.html">See a full sample report</a>
+        </div>
+        <div class="an-peek" aria-hidden="true">
+          <div class="an-flag">Sample, not a real client</div>
+          <div class="an-row"><span>Website forms</span><b>14% booked</b></div><div class="an-bar"><i style="width:70%"></i></div>
+          <div class="an-row"><span>Angi leads</span><b>4% booked</b></div><div class="an-bar"><i style="width:20%"></i></div>
+          <div class="an-row"><span>Quotes under 2 weeks</span><b>18% booked</b></div><div class="an-bar"><i style="width:90%"></i></div>
+          <div class="an-row"><span>Quotes over 2 months</span><b>3% booked</b></div><div class="an-bar"><i style="width:15%"></i></div>
+          <div class="an-rec"><b>Recommendation:</b> get a second call out within 2 days.</div>
+        </div>
+      </div>
+    </div>
   </section>
 
   <section aria-labelledby="not">
