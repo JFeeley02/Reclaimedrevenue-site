@@ -43,9 +43,10 @@
   .card .sub { color: var(--muted); margin: 4px 0 18px; font-size: 15px; }
   .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
 
-  .tiles { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+  .tiles { display: grid; grid-template-columns: repeat(7, 1fr); gap: 10px; }
+  .note b { color: var(--ink); }
   .tile { background: var(--sand); border-radius: 14px; padding: 14px 14px 12px; }
-  .tile .n { font-family: "Young Serif", Georgia, serif; font-size: 30px; line-height: 1; color: var(--ink); font-variant-numeric: tabular-nums; }
+  .tile .n { font-family: "Young Serif", Georgia, serif; font-size: 28px; line-height: 1; color: var(--ink); font-variant-numeric: tabular-nums; }
   .tile .l { font-size: 13.5px; color: var(--muted); margin-top: 6px; line-height: 1.35; }
   .tile.hi { background: var(--clay); }
   .tile.hi .n, .tile.hi .l { color: #fff; }
@@ -99,9 +100,11 @@
   footer { border-top: 1px solid var(--rule); color: var(--muted); font-size: 14px; }
   footer .wrap { padding-block: 22px; }
 
+  @media (max-width: 1000px) { .tiles { grid-template-columns: repeat(4, 1fr); } .tile.hi { grid-column: span 1; } }
   @media (max-width: 760px) {
     .grid2, .split { grid-template-columns: 1fr; }
     .tiles { grid-template-columns: repeat(2, 1fr); }
+    .tile.hi { grid-column: span 2; }
     .card { padding: 22px 18px 20px; }
     .trend .v { font-size: 22px; }
   }
@@ -133,9 +136,13 @@
       <div class="tiles">
         <div class="tile hi"><div class="n">14</div><div class="l">Appointments booked on your calendar</div></div>
         <div class="tile"><div class="n">9</div><div class="l">Want a call later (dates noted for you)</div></div>
-        <div class="tile"><div class="n">53</div><div class="l">Not interested or already hired someone</div></div>
-        <div class="tile"><div class="n">74</div><div class="l">No answer, bad number, or didn't meet your criteria</div></div>
+        <div class="tile"><div class="n">22</div><div class="l">Already hired someone else</div></div>
+        <div class="tile"><div class="n">31</div><div class="l">Reached, not interested</div></div>
+        <div class="tile"><div class="n">12</div><div class="l">Didn't meet your criteria</div></div>
+        <div class="tile"><div class="n">52</div><div class="l">No answer after every try</div></div>
+        <div class="tile"><div class="n">10</div><div class="l">Bad or disconnected number</div></div>
       </div>
+      <p class="note">What each one tells you: <b>already hired</b> means they were reached too late, <b>didn't meet your criteria</b> points back at who your marketing reaches, <b>no answer</b> is mostly timing (see Patterns), and <b>bad numbers</b> show where leads are being captured wrong. This month, 7 of the 10 bad numbers came from Angi.</p>
     </section>
 
     <div class="grid2">
